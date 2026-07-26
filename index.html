@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <!-- ==========================================
+         ОСНОВНЫЕ НАСТРОЙКИ
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fedir | Engineering Portfolio</title>
+    <link rel="icon" type="image/png" href="./assets/icons/favicon4.png">
+
+    <meta name="description" content="Engineering portfolio of Fedir. Electronics, Arduino, Robotics, 3D Printing and Programming.">
+
+    <meta name="theme-color" content="#0f1117">
+
+    <!-- ==========================================
+         ШРИФТ
+    =========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ==========================================
+         СТИЛИ
+    =========================================== -->
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/background.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ========================================================= -->
+    <!-- ИНТЕРАКТИВНЫЙ ФОН -->
+    <!-- ========================================================= -->
+
+    <canvas id="backgroundCanvas"></canvas>
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                F
+
+            </div>
+
+            <div class="logo-text">
+
+                <h2>FEDIR</h2>
+
+                <span>Engineering Lab</span>
+
+            </div>
+
+        </div>
+<button class="menu-toggle">
+
+☰
+
+</button>
+        <nav class="navigation">
+
+            <a href="#home">Главная</a>
+            <a href="#about">Обо мне</a>
+            <a href="#projects">Проекты</a>
+            <a href="#lab">Лаборатория</a>
+            <a href="#resume">Резюме</a>
+            <a href="#contact">Контакты</a>
+
+        </nav>
+
+        <div class="header-right">
+
+            <button class="language-button">
+
+                RU
+
+            </button>
+
+            <button class="github-button">
+
+                GitHub
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- HERO -->
+    <!-- ========================================================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                ENGINEERING • ROBOTICS • PROGRAMMING
+
+            </div>
+
+            <h1>
+
+                FEDIR
+
+            </h1>
+
+            <h2 id="changingText">
+
+                Electronics
+
+            </h2>
+
+            <p>
+
+                Меня зовут Федор Романенко, я увлекаюсь инженерными навыками этот сайт это мое портфолио здесь вы можете увидеть мои проекты узнать чуть болше про меня.
+
+            </p>
+
+            <div class="hero-buttons">
+
+<button class="primary-button"
+        onclick="location.href='projects.html'">
+
+    Мои проекты
+
+</button>
+
+               <a href="assets/downloads/Fedir_Romanenko_CV.pdf" download class="secondary-button">
+    Скачать резюме
+</a>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+
+            ↓ Scroll
+
+        </div>
+
+    </section>
+    <section class="about-section" id="about">
+
+    <div class="section-title">
+
+        <span>ABOUT ME</span>
+
+        <h2>Обо мне</h2>
+
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-card">
+
+            <h3>👨‍💻 Кто я</h3>
+
+            <p>
+
+               Меня зовут Федор Романенко. Я начинающий инженер и разработчик, который увлекается созданием собственных проектов на пересечении электроники, программирования и механики.
+
+С раннего возраста мне было интересно разбирать устройства, понимать, как они работают, и создавать свои решения. Я люблю превращать идеи в реальные проекты — от простых электронных устройств до сложных инженерных систем.
+
+Этот сайт — мое портфолио, где я собираю свои проекты, эксперименты и разработки, показывая свой путь развития в инженерии и технологиях.
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>⚡ Чем занимаюсь</h3>
+
+            <p>
+
+               Основное направление моих интересов — инженерия, робототехника и разработка собственных устройств.
+
+Я занимаюсь программированием, работаю с Arduino, создаю электронные схемы, проектирую детали в Fusion 360 и занимаюсь 3D-печатью. Мне интересно объединять разные области: механику, электронику и программное обеспечение для создания новых проектов.
+
+Также я занимаюсь экспериментами и прототипированием: создаю различные устройства, изучаю работу двигателей, датчиков и электронных компонентов, а также развиваю навыки проектирования.
+
+Помимо технических увлечений, я занимаюсь спортом. Мне нравится дзюдо, горный велосипед и активный отдых. Спорт помогает развивать дисциплину, выносливость и стремление постоянно улучшать свои навыки.
+
+Я также интересуюсь астрономией, ракетным моделированием, робототехникой и изучением новых технологий.
+
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>🛠 Навыки</h3>
+
+            <div class="skills">
+
+                <span>Arduino</span>
+                <span>Fusion 360</span>
+                <span>Shapr3D</span>
+                <span>Electronics</span>
+                <span>3D Printing</span>
+                <span>BTT</span>
+                <span>Robotics</span>
+                <span>HTML</span>
+                <span>CSS</span>
+
+            </div>
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>🔬 Сейчас изучаю</h3>
+
+            <p>
+Сейчас я продолжаю развиваться в техническом направлении, изучая программирование, электронику и инженерное проектирование.
+
+Я изучаю создание сайтов, разработку приложений, Arduino и микроконтроллеры, 3D-моделирование в Fusion 360, основы робототехники и работу различных электронных систем.
+
+Мне нравится самостоятельно изучать новые технологии, искать информацию, экспериментировать и применять полученные знания на практике через собственные проекты.
+            </p>
+
+        </div>
+
+       
+
+    </div>
+ <div class="section-title stats-title">
+
+    <span>STATISTICS</span>
+
+    <h2>Моя статистика</h2>
+
+</div>
+        <div class="stats">
+
+    <div class="stat-card">
+
+        <h3 class="counter" data-target="15">0</h3>
+
+        <p>Проектов</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3 class="counter" data-target="4">0</h3>
+
+        <p>Года опыта</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3 class="counter" data-target="8">0</h3>
+
+        <p>Изученных технологий</p>
+
+    </div>
+
+    <div class="stat-card">
+
+<h3><span class="counter" data-target="100">0</span>%</h3>
+
+<p>Желание развиваться</p>
+
+    </div>
+
+</div>
+</section>
+<section class="projects-section" id="projects">
+
+    <div class="section-title">
+
+        <span>MY PROJECTS</span>
+
+        <h2>Мои проекты</h2>
+
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+
+<div class="project-image">
+
+   <img src="assets/images/icon1.png" alt="Project1">
+
+</div>
+
+            <div class="project-content">
+
+                <h3>3D Print Calculator</h3>
+
+                <p>
+
+                    Калькулятор стоимости 3D-печати
+
+                </p>
+
+                <div class="project-tags">
+
+                    <span>MIT App Inventor</span>
+                    <span>Design</span>
+                    
+
+                </div>
+
+<button class="project-button"
+        type="button"
+        onclick="window.location.href='projects/printer-calculator.html';">
+    Подробнее →
+</button>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+
+<div class="project-image">
+
+    <img src="assets/images/icon2.png" alt="Project2">
+
+</div>
+            <div class="project-content">
+
+                <h3>SunSafe</h3>
+
+                <p>
+
+                    Умный помощник для безопасного пребывания на солнце
+
+                </p>
+
+                <div class="project-tags">
+
+                    <span>MIT App Inventor</span>
+                    <span>Design</span>
+
+                </div>
+
+<button class="project-button"
+        onclick="location.href='projects/sunsafe.html'">
+
+    Подробнее →
+
+</button>
+
+            </div>
+
+        </div>
+
+    </div>
+<footer>
+
+    <div class="footer-content">
+
+        <h2>Fedir Romanenko</h2>
+
+        <p>
+
+            Будущий инженер • Разработчик • Создатель проектов
+
+        </p>
+
+        <div class="footer-line"></div>
+
+        <p class="copyright">
+
+            © 2026 Fedir Romanenko. All rights reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+</section>
+
+<section class="contact-section" id="contact">
+
+    <div class="section-title">
+
+        <span>CONTACT</span>
+
+        <h2>Связаться со мной</h2>
+
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <h3>📧 Email</h3>
+
+            <p>fedir15977@aegx.pt</p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <h3>💬 Telegram</h3>
+
+            <p>@Mrlololowka19</p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <h3>💻 GitHub</h3>
+
+            <p>github.com/yourname</p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <h3>📍 Страна</h3>
+
+            <p>Portugal</p>
+
+        </div>
+
+    </div>
+
+</section>
+<script src="assets/js/background.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/scroll.js"></script>
+<script src="assets/js/cards.js"></script>
+<script src="assets/js/navigation.js"></script>
+<script src="assets/js/counter.js"></script>
+
+
+</body>
+<div class="background-grid"></div>
+</html>

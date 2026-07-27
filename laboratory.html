@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Лаборатория | Fedir Portfolio</title>
+<link rel="icon" type="image/png" href="./assets/icons/favicon4.png">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+
+<div class="logo-icon">F</div>
+
+<div class="logo-text">
+
+<h2>FEDIR</h2>
+<span>ENGINEER PORTFOLIO</span>
+
+</div>
+
+</div>
+
+
+<nav class="navigation">
+
+<a href="index.html">Главная</a>
+<a href="projects.html">Проекты</a>
+<a href="laboratory.html">Лаборатория</a>
+<a href="ideas.html">Идеи</a>
+
+</nav>
+
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<span class="hero-badge">
+LABORATORY
+</span>
+
+<h1>Лаборатория</h1>
+
+<h2>Эксперименты и исследования</h2>
+
+<p>
+Здесь находятся эксперименты, тесты и небольшие инженерные исследования.
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="lab-table">
+
+    <div class="lab-object coil"
+         onclick="openLab('electromagnet')">
+
+        <img src="assets/images/lab/coil.png">
+
+        <span>Электромагнит</span>
+
+    </div>
+
+
+    <div class="lab-object battery"
+         onclick="openLab('capacitor')">
+
+        <img src="assets/images/lab/capacitor.png">
+
+        <span>Конденсаторы</span>
+
+    </div>
+
+
+    <div class="lab-object crystal"
+         onclick="openLab('crystals')">
+
+        <img src="assets/images/lab/crystal.png">
+
+        <span>Электролиз</span>
+
+    </div>
+
+
+   <!-- <div class="lab-object generator"
+         onclick="openLab('generator')">
+
+        <img src="assets/images/lab/generator.png">
+
+        <span>Генераторы</span>
+
+    </div>-->
+
+
+</section>
+
+<div class="lab-modal" id="labModal">
+
+    <div class="lab-window">
+
+        <button class="lab-close" onclick="closeLab()">
+            ✕
+        </button>
+
+
+        <h2 id="labTitle">
+            Название эксперимента
+        </h2>
+
+
+        <div class="lab-images">
+
+            <img id="labImage1" src="">
+
+            <img id="labImage2" src="">
+
+        </div>
+
+
+        <p id="labText">
+
+            Описание эксперимента.
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+<script src="assets/js/laboratory.js"></script>
+</body>
+
+</html>

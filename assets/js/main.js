@@ -39,3 +39,21 @@ changingText.style.transition =
 "opacity .35s ease, transform .35s ease";
 
 setInterval(changeWord, 2500);
+function changeLanguage(lang){
+
+    if(lang==="ru"){
+
+        location.reload();
+
+        return;
+
+    }
+
+    const url=window.location.href;
+
+    const translateUrl=
+`https://translate.google.com/translate?sl=ru&tl=${lang}&u=${encodeURIComponent(url)}`;
+
+    window.location.href=translateUrl;
+
+}

@@ -57,3 +57,4 @@ function changeLanguage(lang){
     window.location.href=translateUrl;
 
 }
+

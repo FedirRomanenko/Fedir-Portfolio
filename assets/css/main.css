@@ -2859,115 +2859,39 @@ display:none !important;
     font-weight:700;
 
 }
-@media(max-width:900px){
+ @media (max-width:900px){
 
-.hero{
+section{
 
-    padding:110px 25px 70px;
-
-    min-height:100vh;
+    text-align:center;
 
 }
 
-.hero-content{
+section *{
 
-    max-width:100%;
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+.container,
+.content,
+.about,
+.about-content,
+.projects,
+.hero-content,
+.contact{
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 
-    text-align:center;
-
 }
 
-.hero-badge{
-
-    font-size:12px;
-
-    letter-spacing:3px;
-
-    margin-bottom:18px;
-
-}
-
-.hero h1{
-
-    font-size:64px;
-
-    line-height:1.05;
-
-    margin-bottom:12px;
-    width:100%;
+h1,h2,h3,h4,h5,h6,p{
 
     text-align:center;
-}
-
-.hero h2{
-
-    font-size:28px;
-
-    min-height:38px;
-
-    margin-bottom:22px;
-    width:100%;
-
-    text-align:center;
-}
-
-.hero p{
-
-    font-size:18px;
-
-    line-height:1.7;
-
-    margin-bottom:32px;
-
-    padding:0 5px;
-
-
-    max-width:320px;
-
-    margin:0 auto 32px;
-
-}
-
-.hero-buttons{
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-.primary-button,
-.secondary-button{
-
-    width:100%;
-
-    max-width:320px;
-
-    padding:18px 0;
-
-    font-size:17px;
-
-}
-
-.scroll-indicator{
-
-    bottom:18px;
-
-}
-
-.hero::before{
-
-    width:420px;
-
-    height:420px;
 
 }
 

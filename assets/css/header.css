@@ -1,0 +1,373 @@
+/*==============================
+HEADER
+==============================*/
+
+.header{
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:92%;
+
+    max-width:1500px;
+
+    height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:rgba(15,23,42,.55);
+
+    backdrop-filter:blur(18px);
+
+    z-index:1000;
+
+}
+
+/*==============================
+LOGO
+==============================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.logo-icon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#22c55e,#15803d);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    font-weight:800;
+
+}
+
+.logo-text h2{
+
+    font-size:28px;
+
+    letter-spacing:3px;
+
+}
+
+.logo-text span{
+
+    color:var(--green);
+
+    font-size:14px;
+
+}
+
+/*==============================
+NAVIGATION
+==============================*/
+
+.navigation{
+
+    display:flex;
+
+    gap:38px;
+
+}
+
+.navigation a{
+
+    color:#d1d5db;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.navigation a:hover{
+
+    color:white;
+
+}
+
+.navigation a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--green);
+
+    transition:.35s;
+
+}
+
+.navigation a:hover::after{
+
+    width:100%;
+
+}
+
+/*==============================
+RIGHT SIDE
+==============================*/
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/*==============================
+LANGUAGE
+==============================*/
+
+.language-switcher{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+.language-switcher button{
+
+    padding:8px 14px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid #22c55e;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.language-switcher button:hover{
+
+    background:#22c55e;
+
+    color:#08110b;
+
+}
+
+/*==============================
+MOBILE MENU
+==============================*/
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    z-index:10001;
+
+    position:relative;
+
+}
+
+.menu-overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(4px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9998;
+
+}
+
+.menu-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.mobile-header{
+
+    display:none;
+
+}
+
+.mobile-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.mobile-logo-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#22c55e,#15803d);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    font-weight:800;
+
+}
+
+.mobile-logo h2{
+
+    color:white;
+
+    letter-spacing:3px;
+
+}
+
+.mobile-logo span{
+
+    color:#22c55e;
+
+    font-size:13px;
+
+}
+
+.mobile-divider{
+
+    display:none;
+
+}
+
+.mobile-extra{
+
+    display:none;
+
+}
+
+.mobile-languages{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.mobile-languages button{
+
+    width:55px;
+
+    height:42px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(34,197,94,.5);
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.mobile-github{
+
+    display:none;
+
+    width:180px;
+
+    height:48px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:#22c55e;
+
+    color:#08110b;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}

@@ -2793,11 +2793,7 @@ display:none !important;
 }
 
 }
-.mobile-extra{
 
-    display:none;
-
-}
 .mobile-extra{
 
     display:none;
@@ -2895,4 +2891,338 @@ h1,h2,h3,h4,h5,h6,p{
 
 }
 
+}
+
+/* =====================================
+   RESPONSIVE LAYOUT
+   Keeps every page readable and tappable
+   on phones without changing desktop UI.
+===================================== */
+@media (max-width: 900px) {
+
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        min-width: 320px;
+    }
+
+    .header {
+        top: 12px;
+        width: calc(100% - 24px);
+        height: 64px;
+        padding: 0 14px;
+        border-radius: 15px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+        font-size: 23px;
+    }
+
+    .menu-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 28px;
+    }
+
+    .navigation {
+        width: min(86vw, 320px);
+        padding: 32px 24px;
+        gap: 22px;
+        overflow-y: auto;
+        justify-content: flex-start;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .navigation a {
+        padding: 8px;
+        font-size: 17px;
+    }
+
+    .navigation a.active::before {
+        display: none;
+    }
+
+    .mobile-header,
+    .mobile-extra {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-header {
+        justify-content: center;
+        margin: 4px 0 12px;
+    }
+
+    .mobile-extra {
+        margin-top: 8px;
+        align-items: center;
+    }
+
+    .mobile-languages {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    section * {
+        margin-left: initial;
+        margin-right: initial;
+    }
+
+    .hero {
+        min-height: 100svh;
+        padding: 112px 20px 88px;
+    }
+
+    .hero::before {
+        width: 360px;
+        height: 360px;
+        filter: blur(55px);
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-badge {
+        margin-bottom: 18px;
+        font-size: 10px;
+        line-height: 1.6;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(52px, 18vw, 78px);
+        line-height: .95;
+        overflow-wrap: anywhere;
+    }
+
+    .hero h2 {
+        min-height: 0;
+        margin-bottom: 20px;
+        font-size: clamp(27px, 8vw, 36px);
+    }
+
+    .hero p {
+        margin: 0 auto 30px;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .project-button {
+        width: 100%;
+        min-height: 50px;
+        padding: 14px 20px;
+    }
+
+    .scroll-indicator {
+        bottom: 22px;
+        font-size: 13px;
+    }
+
+    .about-section,
+    .projects-section,
+    .contact-section,
+    .project-info,
+    .project-specs,
+    .features-section,
+    .gallery-section,
+    .lessons-section {
+        width: min(100% - 32px, 620px);
+        margin: 78px auto;
+    }
+
+    .project-preview {
+        width: min(100% - 32px, 620px);
+        margin: 38px auto 70px;
+    }
+
+    .section-title {
+        margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+        margin-top: 10px;
+        font-size: clamp(30px, 9vw, 42px);
+        line-height: 1.15;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .info-grid,
+    .specs-grid,
+    .features-grid,
+    .gallery-grid,
+    .lessons-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .about-card,
+    .contact-card,
+    .info-card,
+    .spec-card,
+    .feature-card,
+    .lesson-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .about-card h3,
+    .contact-card h3,
+    .info-card h3,
+    .feature-card h3,
+    .lesson-card h3 {
+        font-size: 22px;
+    }
+
+    .about-card p,
+    .contact-card p,
+    .info-card p,
+    .feature-card p,
+    .lesson-card p {
+        font-size: 16px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .skills {
+        gap: 10px;
+    }
+
+    .skills span,
+    .project-tags span {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr;
+        border-radius: 20px;
+    }
+
+    .project-image {
+        min-height: 210px;
+        max-height: 260px;
+    }
+
+    .project-content {
+        padding: 25px 20px;
+    }
+
+    .project-content h3 {
+        font-size: 25px;
+        line-height: 1.2;
+    }
+
+    .project-content p {
+        margin-bottom: 22px;
+        font-size: 16px;
+    }
+
+    .project-tags {
+        margin-bottom: 22px;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .stat-card {
+        width: 100%;
+        height: 142px;
+        border-radius: 18px;
+    }
+
+    .stat-card h3 {
+        font-size: 42px;
+    }
+
+    .stat-card p {
+        padding: 0 8px;
+        font-size: 14px;
+    }
+
+    .preview-grid {
+        gap: 16px;
+    }
+
+    .preview-grid img,
+    .gallery-grid img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .info-card li {
+        overflow-wrap: anywhere;
+    }
+
+    .lab-table {
+        min-height: 440px;
+        transform: scale(.82);
+        transform-origin: top center;
+        margin-bottom: -72px;
+    }
+
+    .ideas-board {
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .idea-note {
+        position: relative;
+        inset: auto !important;
+        width: 100%;
+        transform: none !important;
+    }
+
+    .lab-window,
+    .idea-window {
+        width: calc(100% - 28px);
+        max-height: calc(100svh - 28px);
+        overflow-y: auto;
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .lab-images {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        margin-top: 110px;
+        padding: 52px 20px 32px;
+    }
+
+    .footer-content h2 {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 380px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-logo h2 {
+        font-size: 22px;
+    }
 }

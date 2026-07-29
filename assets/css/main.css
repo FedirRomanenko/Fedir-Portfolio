@@ -41,6 +41,8 @@ body{
 
     overflow-x:hidden;
 
+    position:relative;
+
 }
 
 /* ===========================
@@ -49,9 +51,10 @@ BACKGROUND
 
 #backgroundCanvas{
 
-    position:fixed;
+    position:absolute;
 
-    inset:0;
+    top:0;
+    left:0;
 
     width:100%;
     height:100%;

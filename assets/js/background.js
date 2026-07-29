@@ -11,30 +11,42 @@ const atoms = [];
 const bonds = [];
 const waves = [];
 const activeContacts = new Set();
+const pendingExplosions = new Set();
+const explosions = [];
 let contentObstacles = [];
 let nextAtomId = 1;
 
 const DOTS_PER_VIEWPORT = 150;
-const ATOMS_PER_VIEWPORT = window.innerWidth < 700 ? 8 : 14;
+const ATOMS_PER_VIEWPORT = window.innerWidth < 700 ? 10 : 20;
 const MAX_BONDS_PER_ATOM = 3;
+const REACTION_HINT_DISTANCE = 115;
 const CONTENT_SELECTOR = [
     ".header", ".hero-content", ".section-title", ".about-card", ".stat-card",
     ".project-card", ".contact-card", ".project-preview", ".info-card", ".spec-card",
     ".feature-card", ".gallery-grid", ".lesson-card", ".lab-table", ".ideas-board", "footer"
 ].join(",");
-const ATOM_TYPES = [
-    { symbol: "H", color: "#7dd3fc", mass: 1 },
-    { symbol: "O", color: "#fb7185", mass: 16 },
-    { symbol: "C", color: "#cbd5e1", mass: 12 },
-    { symbol: "N", color: "#a78bfa", mass: 14 },
-    { symbol: "He", color: "#fbbf24", mass: 4 },
-    { symbol: "Ne", color: "#f472b6", mass: 20 },
-    { symbol: "Li", color: "#f97316", mass: 7 },
-    { symbol: "Be", color: "#34d399", mass: 9 },
-    { symbol: "Na", color: "#60a5fa", mass: 23 },
-    { symbol: "Mg", color: "#e879f9", mass: 24 },
-    { symbol: "Si", color: "#94a3b8", mass: 28 }
+const PERIODIC_SYMBOLS = `
+H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn
+Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba
+La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb
+Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs
+Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
+`.trim().split(/\s+/);
+
+const ELEMENT_COLORS = [
+    "#7dd3fc", "#fb7185", "#cbd5e1", "#a78bfa", "#fbbf24", "#f472b6",
+    "#f97316", "#34d399", "#60a5fa", "#e879f9", "#94a3b8", "#a3e635"
 ];
+
+const ATOM_TYPES = PERIODIC_SYMBOLS.map((symbol, index) => ({
+    symbol,
+    mass: index + 1,
+    color: ELEMENT_COLORS[index % ELEMENT_COLORS.length]
+}));
+
+const REACTIVE_PAIRS = new Set([
+    "H:O", "F:Li", "Cl:Na", "Mg:O", "Br:K", "Ca:F", "Al:O", "Cs:F"
+]);
 
 function resize() {
     pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
@@ -56,7 +68,7 @@ function targetCount(base, maximum) {
 
 function populateScene() {
     const dotTarget = targetCount(DOTS_PER_VIEWPORT, 380);
-    const atomTarget = targetCount(ATOMS_PER_VIEWPORT, 60);
+    const atomTarget = targetCount(ATOMS_PER_VIEWPORT, 100);
 
     while (dots.length < dotTarget) dots.push(new Dot());
     while (atoms.length < atomTarget) atoms.push(new Atom());
@@ -186,6 +198,8 @@ class Atom {
 }
 
 function resolveAtomCollision(first, second) {
+    if (pendingExplosions.has(first) || pendingExplosions.has(second)) return;
+
     const dx = second.x - first.x;
     const dy = second.y - first.y;
     const distance = Math.hypot(dx, dy) || 0.001;
@@ -223,6 +237,11 @@ function resolveAtomCollision(first, second) {
     second.vx += impulse / second.mass * nx;
     second.vy += impulse / second.mass * ny;
 
+    if (isReactivePair(first, second)) {
+        triggerExplosion(first, second);
+        return;
+    }
+
     if (canCreateBond(first, second) && Math.random() < 0.72) {
         createBond(first, second);
     }
@@ -230,6 +249,16 @@ function resolveAtomCollision(first, second) {
 
 function contactKey(first, second) {
     return first.id < second.id ? `${first.id}:${second.id}` : `${second.id}:${first.id}`;
+}
+
+function reactiveKey(first, second) {
+    return first.symbol < second.symbol
+        ? `${first.symbol}:${second.symbol}`
+        : `${second.symbol}:${first.symbol}`;
+}
+
+function isReactivePair(first, second) {
+    return REACTIVE_PAIRS.has(reactiveKey(first, second));
 }
 
 function areBonded(first, second) {
@@ -247,6 +276,82 @@ function canCreateBond(first, second) {
 
 function createWave(x, y) {
     waves.push({ x, y, radius: 4, opacity: 0.95 });
+}
+
+function triggerExplosion(first, second) {
+    if (pendingExplosions.has(first) || pendingExplosions.has(second)) return;
+
+    const affectedAtoms = new Set([
+        ...getBondGroup(first),
+        ...getBondGroup(second)
+    ]);
+    const centerX = Array.from(affectedAtoms).reduce((sum, atom) => sum + atom.x, 0) / affectedAtoms.size;
+    const centerY = Array.from(affectedAtoms).reduce((sum, atom) => sum + atom.y, 0) / affectedAtoms.size;
+
+    affectedAtoms.forEach(atom => pendingExplosions.add(atom));
+    explosions.push({ x: centerX, y: centerY, radius: 4, opacity: 1 });
+}
+
+function getBondGroup(startAtom) {
+    const group = new Set([startAtom]);
+    const queue = [startAtom];
+
+    while (queue.length) {
+        const atom = queue.shift();
+        atom.bonds.forEach(bond => {
+            const connectedAtom = bond.first === atom ? bond.second : bond.first;
+            if (!group.has(connectedAtom)) {
+                group.add(connectedAtom);
+                queue.push(connectedAtom);
+            }
+        });
+    }
+
+    return group;
+}
+
+function processExplosions() {
+    if (!pendingExplosions.size) return;
+
+    const replacementCount = pendingExplosions.size;
+    pendingExplosions.forEach(atom => removeAtom(atom));
+    pendingExplosions.clear();
+
+    window.setTimeout(() => {
+        for (let i = 0; i < replacementCount; i++) atoms.push(new Atom());
+    }, 900);
+}
+
+function removeAtom(atom) {
+    for (let i = bonds.length - 1; i >= 0; i--) {
+        const bond = bonds[i];
+        if (bond.first !== atom && bond.second !== atom) continue;
+        bond.first.bonds.delete(bond);
+        bond.second.bonds.delete(bond);
+        bonds.splice(i, 1);
+    }
+
+    activeContacts.forEach(key => {
+        const [firstId, secondId] = key.split(":").map(Number);
+        if (firstId === atom.id || secondId === atom.id) activeContacts.delete(key);
+    });
+
+    const index = atoms.indexOf(atom);
+    if (index !== -1) atoms.splice(index, 1);
+}
+
+function relocateRandomAtom() {
+    if (!atoms.length) return;
+
+    const atom = atoms[Math.floor(Math.random() * atoms.length)];
+    createWave(atom.x, atom.y);
+    removeAtom(atom);
+
+    window.setTimeout(() => {
+        const replacement = new Atom();
+        atoms.push(replacement);
+        createWave(replacement.x, replacement.y);
+    }, 700);
 }
 
 function createBond(first, second) {
@@ -354,6 +459,74 @@ function updateAndDrawWaves() {
     }
 }
 
+function updateAndDrawExplosions() {
+    for (let i = explosions.length - 1; i >= 0; i--) {
+        const explosion = explosions[i];
+        explosion.radius += 2.3;
+        explosion.opacity -= 0.028;
+
+        ctx.beginPath();
+        ctx.arc(explosion.x, explosion.y, explosion.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(251, 146, 60, ${Math.max(0, explosion.opacity)})`;
+        ctx.lineWidth = 2;
+        ctx.shadowBlur = 18;
+        ctx.shadowColor = "#fb923c";
+        ctx.stroke();
+
+        const rayLength = explosion.radius + 10;
+        for (let ray = 0; ray < 8; ray++) {
+            const angle = ray * Math.PI / 4;
+            ctx.beginPath();
+            ctx.moveTo(explosion.x + Math.cos(angle) * explosion.radius * 0.55,
+                explosion.y + Math.sin(angle) * explosion.radius * 0.55);
+            ctx.lineTo(explosion.x + Math.cos(angle) * rayLength,
+                explosion.y + Math.sin(angle) * rayLength);
+            ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+
+        if (explosion.opacity <= 0) explosions.splice(i, 1);
+    }
+}
+
+function drawReactionHints() {
+    for (let i = 0; i < atoms.length; i++) {
+        for (let j = i + 1; j < atoms.length; j++) {
+            const first = atoms[i];
+            const second = atoms[j];
+            if (pendingExplosions.has(first) || pendingExplosions.has(second) || !isReactivePair(first, second)) continue;
+
+            const distance = Math.hypot(second.x - first.x, second.y - first.y);
+            if (distance >= REACTION_HINT_DISTANCE) continue;
+
+            const intensity = (REACTION_HINT_DISTANCE - distance) / REACTION_HINT_DISTANCE;
+            drawExplosionHint((first.x + second.x) / 2, (first.y + second.y) / 2, intensity);
+        }
+    }
+}
+
+function drawExplosionHint(x, y, intensity) {
+    const radius = 3 + intensity * 4;
+    ctx.strokeStyle = `rgba(251, 191, 36, ${0.3 + intensity * 0.65})`;
+    ctx.fillStyle = `rgba(251, 146, 60, ${0.25 + intensity * 0.55})`;
+    ctx.lineWidth = 1;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = "#f59e0b";
+    ctx.beginPath();
+    for (let point = 0; point < 10; point++) {
+        const angle = -Math.PI / 2 + point * Math.PI / 5;
+        const pointRadius = point % 2 ? radius * 0.45 : radius;
+        const px = x + Math.cos(angle) * pointRadius;
+        const py = y + Math.sin(angle) * pointRadius;
+        if (point === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+}
+
 function keepAtomsAwayFromDots() {
     atoms.forEach(atom => {
         dots.forEach(dot => {
@@ -440,10 +613,13 @@ function animate(now) {
         }
     }
 
+    processExplosions();
     updateBonds(now);
     keepAtomsAwayFromDots();
     keepAtomsAwayFromContent();
     updateAndDrawWaves();
+    updateAndDrawExplosions();
+    drawReactionHints();
     drawBonds();
     atoms.forEach(atom => atom.draw());
     drawLines();
@@ -465,5 +641,7 @@ window.addEventListener("mouseleave", () => {
     mouse.x = -1000;
     mouse.y = -1000;
 });
+
+window.setInterval(relocateRandomAtom, 60_000);
 
 animate();

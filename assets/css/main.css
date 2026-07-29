@@ -1482,49 +1482,6 @@ footer::before{
 
 }
 /*=====================================
-BACKGROUND GRID
-=====================================*/
-
-.background-grid{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:-2;
-
-    opacity:.12;
-
-    background-image:
-
-        linear-gradient(rgba(34,197,94,.08) 1px, transparent 1px),
-
-        linear-gradient(90deg, rgba(34,197,94,.08) 1px, transparent 1px);
-
-    background-size:60px 60px;
-
-    animation:gridFloat 25s linear infinite;
-
-}
-
-@keyframes gridFloat{
-
-    from{
-
-        transform:translateY(0);
-
-    }
-
-    to{
-
-        transform:translateY(60px);
-
-    }
-
-}
-/*=====================================
 CONTACT
 =====================================*/
 

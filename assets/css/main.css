@@ -2800,7 +2800,7 @@ display:none !important;
 }
 .mobile-extra{
 
-    display:flex;
+    display:none;
 
     flex-direction:column;
 

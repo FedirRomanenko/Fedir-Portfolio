@@ -2,305 +2,314 @@
 <html lang="ru">
 
 <head>
-<link rel="icon" href="../assets/icons/favicon4.png">
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Rocket Control System</title>
-
+    <meta name="description" content="История разработки водяной ракеты: версии, испытания и изменения конструкции.">
+    <title>Водяная ракета | Fedir</title>
+    <link rel="icon" href="../assets/icons/favicon4.png">
     <link rel="stylesheet" href="../assets/css/main.css">
-
 </head>
 
-<body>
+<body class="rocket-page">
 
-<header class="header">
+    <header class="header">
+        <a class="logo" href="../index.html" aria-label="На главную">
+            <div class="logo-icon">F</div>
+            <div class="logo-text">
+                <h2>FEDIR</h2>
+                <span>Engineering Lab</span>
+            </div>
+        </a>
 
-    <div class="logo">
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
 
-        <div class="logo-icon">F</div>
+        <nav class="navigation" aria-label="Основная навигация">
+            <a href="../index.html">Главная</a>
+            <a class="active" href="../projects.html">Проекты</a>
+        </nav>
+    </header>
 
-        <div class="logo-text">
+    <main>
+        <section class="rocket-hero">
+            <div class="rocket-hero-content">
+                <span class="hero-badge">EXPERIMENT LOG · AUGUST 2026</span>
+                <h1>Водяная ракета</h1>
+                <p>
+                    Одна страница с последовательными версиями ракеты, стартового стенда
+                    и механизма запуска. Здесь будут появляться новые испытания по мере разработки.
+                </p>
+                <a class="secondary-button" href="#version-1">Смотреть версии ↓</a>
+            </div>
+        </section>
 
-            <h2>FEDIR</h2>
+        <section class="rocket-timeline" aria-label="Версии водяной ракеты">
+            <article class="rocket-version" id="version-1">
+                <header class="rocket-version-heading">
+                    <span class="rocket-version-number">Версия 1</span>
+                    <div>
+                        <p class="rocket-version-date">Август 2026</p>
+                        <h2>Испытательный стенд V1</h2>
+                    </div>
+                </header>
 
-            <span>ENGINEER PORTFOLIO</span>
+                <div class="rocket-version-layout">
+                    <figure class="rocket-media">
+                        <img src="../assets/images/water-rocket-v1.jpeg"
+                            alt="Проверка стартового стенда первой версии водяной ракеты на открытой площадке">
+                        <video controls preload="metadata" playsinline>
+                            <source src="../assets/videos/water-rocket-v1.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                        <figcaption>Первое испытание стенда на открытой площадке.</figcaption>
+                    </figure>
 
+                    <div class="rocket-version-content">
+                        <h3>Что было сделано</h3>
+                        <p>
+                            Первый этап проекта был посвящён проверке стартового стенда V1.
+                            В роли ракеты на этом этапе использовалась обычная пластиковая бутылка.
+                        </p>
+                        <p>
+                            Главная идея этого испытания — начать с простого прототипа и проверить
+                            сам процесс подготовки и установки ракеты на стенд до усложнения конструкции.
+                        </p>
+
+                        <dl class="rocket-facts">
+                            <div><dt>Ракета</dt><dd>Пластиковая бутылка</dd></div>
+                            <div><dt>Назначение</dt><dd>Проверка стенда V1</dd></div>
+                            <div><dt>Этап</dt><dd>Первый прототип</dd></div>
+                        </dl>
+
+                        <div class="rocket-evaluation">
+                            <section class="rocket-evaluation-card rocket-evaluation-card-plus">
+                                <h3>Преимущества</h3>
+                                <ul>
+                                    <li>Простой прототип позволил начать проверку с реального запуска.</li>
+                                    <li>Стенд V1 был испытан на открытой площадке.</li>
+                                </ul>
+                            </section>
+                            <section class="rocket-evaluation-card rocket-evaluation-card-minus">
+                                <h3>Доработки</h3>
+                                <ul>
+                                    <li>На этом этапе ракета представляла собой только пластиковую бутылку.</li>
+                                    <li>Для дальнейших версий требовались отдельные корпус и стартовые узлы.</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rocket-version" id="version-2">
+                <header class="rocket-version-heading">
+                    <span class="rocket-version-number">Версия 2</span>
+                    <div>
+                        <p class="rocket-version-date">Август 2026 · та же неделя</p>
+                        <h2>Корпус, стабилизаторы и первый спусковой механизм</h2>
+                    </div>
+                </header>
+
+                <div class="rocket-version-layout rocket-version-layout-reverse">
+                    <figure class="rocket-media">
+                        <video controls preload="metadata" playsinline>
+                            <source src="../assets/videos/water-rocket-v2.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                        <figcaption>Испытание второй версии конструкции.</figcaption>
+                    </figure>
+
+                    <div class="rocket-version-content">
+                        <h3>Изменения во второй версии</h3>
+                        <ul class="rocket-details">
+                            <li>Корпус выполнен из бумаги и клея ПВА.</li>
+                            <li>Стабилизаторы сделаны из жёсткого листового материала, похожего на картон.</li>
+                            <li>Бак выполнен из трубы: с одной стороны вклеено горлышко бутылки, с другой — установлена пробка.</li>
+                            <li>Появилась первая версия спускового механизма на основе консервной банки.</li>
+                        </ul>
+
+                        <h3>Спусковой механизм V1</h3>
+                        <p>
+                            В дне банки сделано отверстие под ниппель, а сверху — две длинные прорези.
+                            В них устанавливается пластина, которая цепляется за края бутылки и удерживает пробку.
+                        </p>
+
+                        <div class="rocket-note">
+                            <strong>Результат испытания:</strong> бак оказался негерметичным и при накачивании развалился.
+                            Это показало, что герметичность бака — следующий ключевой пункт для доработки.
+                        </div>
+
+                        <div class="rocket-evaluation">
+                            <section class="rocket-evaluation-card rocket-evaluation-card-plus">
+                                <h3>Преимущества</h3>
+                                <ul>
+                                    <li>Появились отдельные корпус, стабилизаторы и первая версия механизма запуска.</li>
+                                    <li>Конструкция стала следующим шагом после бутылки из первой версии.</li>
+                                </ul>
+                            </section>
+                            <section class="rocket-evaluation-card rocket-evaluation-card-minus">
+                                <h3>Недостатки</h3>
+                                <ul>
+                                    <li>Бак оказался негерметичным.</li>
+                                    <li>При накачивании бак развалился, поэтому узел требовал усиления.</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rocket-version" id="version-3">
+                <header class="rocket-version-heading">
+                    <span class="rocket-version-number">Версия 3</span>
+                    <div>
+                        <p class="rocket-version-date">Август 2026 · та же неделя</p>
+                        <h2>Доработка запуска и система спасения</h2>
+                    </div>
+                </header>
+
+                <div class="rocket-version-layout">
+                    <figure class="rocket-media">
+                        <video controls preload="metadata" playsinline>
+                            <source src="../assets/videos/water-rocket-v3.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                        <figcaption>Испытание третьей версии водяной ракеты.</figcaption>
+                    </figure>
+
+                    <div class="rocket-version-content">
+                        <h3>Что изменилось</h3>
+                        <ul class="rocket-details">
+                            <li>Стабилизаторы от бумажной ракеты были приклеены непосредственно к пластиковой бутылке.</li>
+                            <li>Для предохранителя запуска использована более жёсткая консервная банка.</li>
+                            <li>Добавлена система спасения с парашютом.</li>
+                        </ul>
+
+                        <h3>Система спасения</h3>
+                        <p>
+                            Парашют и его стропы выполнены из полиэтилена. Корпус системы собран из бутылок и картона.
+                            Это добавило проекту новую задачу: не только запустить ракету, но и продумать её возвращение после полёта.
+                        </p>
+
+                        <div class="rocket-note">
+                            <strong>Что показал тест:</strong> стабилизаторы, приклеенные прямо к бутылке,
+                            быстро оторвались. Следующая доработка должна дать им более надёжное крепление.
+                        </div>
+
+                        <div class="rocket-evaluation">
+                            <section class="rocket-evaluation-card rocket-evaluation-card-plus">
+                                <h3>Преимущества</h3>
+                                <ul>
+                                    <li>Предохранитель запуска был переделан с использованием более жёсткой банки.</li>
+                                    <li>Добавлена система спасения с парашютом и стропами из полиэтилена.</li>
+                                </ul>
+                            </section>
+                            <section class="rocket-evaluation-card rocket-evaluation-card-minus">
+                                <h3>Недостатки</h3>
+                                <ul>
+                                    <li>Стабилизаторы были приклеены прямо к пластиковой бутылке.</li>
+                                    <li>Такое крепление не выдержало испытания: стабилизаторы быстро оторвались.</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rocket-version" id="version-4">
+                <header class="rocket-version-heading">
+                    <span class="rocket-version-number">Версия 4</span>
+                    <div>
+                        <p class="rocket-version-date">Август 2026 · та же неделя</p>
+                        <h2>Усиленное крепление — финальная версия конструкции</h2>
+                    </div>
+                </header>
+
+                <div class="rocket-version-layout rocket-version-layout-reverse">
+                    <figure class="rocket-media">
+                        <video controls preload="metadata" playsinline>
+                            <source src="../assets/videos/water-rocket-v4.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                        <figcaption>Запуск четвёртой версии в ту же неделю испытаний.</figcaption>
+                    </figure>
+
+                    <div class="rocket-version-content">
+                        <h3>Главные доработки</h3>
+                        <ul class="rocket-details">
+                            <li>Стабилизаторы теперь крепятся к ракете через картонную юбку.</li>
+                            <li>Пробка переделана, а ниппель закреплён надёжнее.</li>
+                            <li>Запуск этой версии также состоялся в ту же неделю, что и предыдущие испытания.</li>
+                        </ul>
+
+                        <h3>Финальная версия на этом этапе</h3>
+                        <p>
+                            После быстрого отрыва стабилизаторов в третьей версии конструкция получила отдельную картонную юбку.
+                            Она создаёт более продуманную точку крепления между бутылкой и стабилизаторами, а доработанная пробка
+                            делает узел с ниппелем более прочным.
+                        </p>
+
+                        <div class="rocket-future">
+                            <span>Будущая модернизация</span>
+                            <p>
+                                После появления 3D‑принтера планируется заменить все самодельные части пластиковыми деталями.
+                                Это даст возможность точнее повторять конструкцию и постепенно обновлять каждый узел ракеты.
+                            </p>
+                        </div>
+
+                        <div class="rocket-evaluation">
+                            <section class="rocket-evaluation-card rocket-evaluation-card-plus">
+                                <h3>Преимущества</h3>
+                                <ul>
+                                    <li>Стабилизаторы перенесены на отдельную картонную юбку.</li>
+                                    <li>Пробка переделана, а ниппель закреплён надёжнее.</li>
+                                    <li>Это текущая финальная версия конструкции на данном этапе проекта.</li>
+                                </ul>
+                            </section>
+                            <section class="rocket-evaluation-card rocket-evaluation-card-minus">
+                                <h3>Что ещё можно улучшить</h3>
+                                <ul>
+                                    <li>Часть деталей всё ещё выполнена из бутылок и картона.</li>
+                                    <li>После появления 3D‑принтера планируется заменить самодельные части пластиковыми деталями.</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <section class="rocket-next-version" aria-label="Будущие версии">
+                <span>ДАЛЬШЕ</span>
+                <h2>Следующая версия появится здесь</h2>
+                <p>Новые фотографии, видео, изменения конструкции и результаты испытаний будут добавляться по порядку.</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Fedir Romanenko</h2>
+            <p>Инженерные эксперименты и собственные проекты</p>
+            <div class="footer-line"></div>
+            <p class="copyright">© 2026 Fedir Romanenko. All rights reserved.</p>
         </div>
-
-    </div>
-
-    <nav class="navigation">
-
-        <a href="../index.html">Главная</a>
-        <a href="../projects.html">Проекты</a>
-
-    </nav>
-
-</header>
-
-<section class="hero">
-
-    <div class="hero-content">
-
-       <span class="hero-badge">
-    ENGINEERING PROJECT
-</span>
-
-<h1>Rocket Control System</h1>
-
-<h2>Автоматизированная система управления моделью ракеты</h2>
-
-<p>
-
-Проект ракеты с электронной системой управления,
-созданной на базе Arduino. Система отвечает за запуск,
-последовательность действий и управление механизмами модели.
-
-</p>
-
-    </div>
-
-</section>
-
-<section class="project-preview">
-
-    <div class="preview-grid">
-
-        <img src="../assets/images/image1.jpg" alt="">
-
-        <img src="../assets/images/image2.jpg" alt="">
-
-    </div>
-
-</section>
-
-<section class="project-info">
-
-    <div class="section-title">
-
-        <span>ABOUT PROJECT</span>
-
-        <h2>О проекте</h2>
-
-    </div>
-
-    <div class="info-grid">
-
-        <div class="info-card">
-
-           <p>
-
-Rocket Control System — это инженерный проект,
-в котором была разработана электронная система управления
-моделью ракеты.
-
-Основой проекта является микроконтроллер Arduino,
-который контролирует сервоприводы и выполняет запрограммированную
-последовательность действий после запуска.
-
-Главная цель проекта — изучение автоматизации,
-электроники и создания собственных роботизированных систем.
-
-Но после неудачьной посадки 3D печатные детали разбились и проект попал в откладной ящик
-
-</p>
-        </div>
-
-        <div class="info-card">
-
-            <h3>⚡ Возможности</h3>
-
-<ul>
-
-<li>✔ Автоматическая последовательность запуска</li>
-
-<li>✔ Управление сервоприводами</li>
-
-<li>✔ Программирование логики полета</li>
-
-<li>✔ Электронная система управления</li>
-
-<li>✔ Модульная конструкция</li>
-
-<li>✔ Возможность дальнейшей модернизации</li>
-
-</ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="project-specs">
-
-    <div class="section-title">
-
-        <span>PROJECT INFO</span>
-
-        <h2>Характеристики проекта</h2>
-
-    </div>
-
-    <div class="specs-grid">
-
-        <div class="spec-card">
-
-            <h3>🚀 Тип</h3>
-
-            <p>Модель ракеты с системой управления</p>
-
-        </div>
-
-        <div class="spec-card">
-
-            <h3>⚙️ Контроллер</h3>
-
-            <p>Arduino Nano</p>
-
-        </div>
-
-        <div class="spec-card">
-
-            <h3>🔌 Электроника</h3>
-
-            <p>Сервоприводы, кнопка запуска, питание</p>
-
-        </div>
-
-        <div class="spec-card">
-
-            <h3>🗓 Год</h3>
-
-            <p>2026</p>
-
-        </div>
-
-        <div class="spec-card">
-
-            <h3>🔧 Статус</h3>
-
-            <p>Отложен</p>
-
-        </div>
-
-        <div class="spec-card">
-
-            <h3>💻 Программирование</h3>
-
-            <p>Arduino C++</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="features-section">
-
-    <div class="section-title">
-
-        <span>FEATURES</span>
-
-        <h2>Основные возможности</h2>
-
-    </div>
-
-    <div class="features-grid">
-
-        <div class="feature-card">
-
-            <div class="feature-icon">🧠</div>
-
-            <h3>Автоматическое управление</h3>
-
-            <p>После запуска система выполняет заранее заданную программу,
-управляя механизмами ракеты без ручного вмешательства.</p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <div class="feature-icon">⚙️</div>
-
-            <h3>Работа с сервоприводами</h3>
-
-            <p>Arduino управляет несколькими сервомоторами,
-которые выполняют различные механические действия.</p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <div class="feature-icon">🔋</div>
-
-            <h3>Электронная система</h3>
-
-            <p>Проект включает питание, управляющую плату и электронные компоненты,
-объединенные в одну систему.</p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <div class="feature-icon">💻</div>
-
-            <h3>Программная логика</h3>
-
-            <p>Программа отвечает за тайминги, порядок действий
-и взаимодействие всех элементов системы.</p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <div class="feature-icon">🛠</div>
-
-            <h3>Возможность развития</h3>
-
-            <p>В будущем проект можно расширить датчиками,
-телеметрией и более сложной системой управления.</p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <div class="feature-icon">🚀</div>
-
-            <h3>Инженерный опыт</h3>
-
-            <p>Проект позволил изучить основы робототехники,
-автоматизации и разработки собственных устройств.</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="gallery-section">
-
-    <div class="section-title">
-
-        <span>GALLERY</span>
-
-        <h2>Галерея</h2>
-
-    </div>
-
-    <div class="gallery-grid">
-
-<img src="../assets/images/rocket1.jpeg">
-<img src="../assets/images/rocket2.jpeg">
-<img src="../assets/images/rocket3.jpeg">
-<img src="../assets/images/rocket4.jpeg">
-
-    </div>
-
-</section>
-
+    </footer>
+
+    <script>
+        const menuButton = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.navigation');
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = navigation.classList.toggle('active');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.textContent = isOpen ? '×' : '☰';
+        });
+
+        navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            navigation.classList.remove('active');
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.textContent = '☰';
+        }));
+    </script>
 </body>
 
 </html>

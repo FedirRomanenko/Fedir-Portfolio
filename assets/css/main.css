@@ -3186,3 +3186,396 @@ h1,h2,h3,h4,h5,h6,p{
         font-size: 22px;
     }
 }
+
+/* =====================================
+   WATER ROCKET PROJECT TIMELINE
+===================================== */
+.rocket-page .logo {
+    color: white;
+    text-decoration: none;
+}
+
+.rocket-hero {
+    min-height: 72vh;
+    display: grid;
+    place-items: center;
+    padding: 150px 24px 84px;
+    text-align: center;
+}
+
+.rocket-hero-content {
+    width: min(860px, 100%);
+}
+
+.rocket-hero h1 {
+    margin: 0 0 22px;
+    font-size: clamp(54px, 10vw, 112px);
+    line-height: .96;
+    text-shadow: 0 0 38px rgba(34, 197, 94, .16);
+}
+
+.rocket-hero p {
+    max-width: 720px;
+    margin: 0 auto 34px;
+    color: var(--text2);
+    font-size: clamp(17px, 2vw, 20px);
+    line-height: 1.8;
+}
+
+.rocket-timeline {
+    width: min(1280px, calc(100% - 48px));
+    margin: 0 auto 120px;
+}
+
+.rocket-version {
+    position: relative;
+    padding: 46px;
+    margin: 0 0 38px;
+    overflow: hidden;
+    border: 1px solid rgba(34, 197, 94, .22);
+    border-radius: 30px;
+    background: linear-gradient(145deg, rgba(21, 34, 43, .86), rgba(10, 15, 21, .94));
+    box-shadow: 0 24px 55px rgba(0, 0, 0, .24);
+}
+
+.rocket-version::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 0 0, rgba(34, 197, 94, .12), transparent 35%);
+}
+
+.rocket-version-heading,
+.rocket-version-layout {
+    position: relative;
+    z-index: 1;
+}
+
+.rocket-version-heading {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 38px;
+}
+
+.rocket-version-number {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid rgba(34, 197, 94, .52);
+    border-radius: 999px;
+    color: #8ef7ae;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.rocket-version-date {
+    margin: 0 0 8px;
+    color: #8ef7ae;
+    font-size: 14px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.rocket-version-heading h2 {
+    margin: 0;
+    font-size: clamp(29px, 4vw, 48px);
+    line-height: 1.08;
+}
+
+.rocket-version-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+    gap: 42px;
+    align-items: center;
+}
+
+.rocket-version-layout-reverse .rocket-media {
+    order: 2;
+}
+
+.rocket-media {
+    margin: 0;
+}
+
+.rocket-media img,
+.rocket-media video {
+    display: block;
+    width: 100%;
+    max-height: 600px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 20px;
+    background: #030506;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .28);
+}
+
+.rocket-media img {
+    object-fit: cover;
+}
+
+.rocket-media figcaption {
+    margin-top: 12px;
+    color: #9ca3af;
+    font-size: 14px;
+    text-align: center;
+}
+
+.rocket-media video {
+    margin-top: 18px;
+}
+
+.rocket-version-content h3 {
+    margin: 0 0 16px;
+    color: white;
+    font-size: 25px;
+}
+
+.rocket-version-content p,
+.rocket-version-content li {
+    color: #c1cad6;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.rocket-version-content p {
+    margin: 0 0 18px;
+}
+
+.rocket-details {
+    display: grid;
+    gap: 11px;
+    padding: 0;
+    margin: 0 0 30px;
+    list-style: none;
+}
+
+.rocket-details li {
+    position: relative;
+    padding-left: 25px;
+}
+
+.rocket-details li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+}
+
+.rocket-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 28px 0 0;
+}
+
+.rocket-facts div {
+    padding: 17px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .035);
+}
+
+.rocket-facts dt {
+    margin-bottom: 8px;
+    color: #8ef7ae;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.rocket-facts dd {
+    margin: 0;
+    color: white;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.rocket-note {
+    margin-top: 28px;
+    padding: 19px 20px;
+    border-left: 4px solid #fbbf24;
+    border-radius: 0 15px 15px 0;
+    background: rgba(251, 191, 36, .1);
+    color: #e9edf3;
+    line-height: 1.7;
+}
+
+.rocket-note strong {
+    color: #fcd34d;
+}
+
+.rocket-future {
+    margin-top: 28px;
+    padding: 20px;
+    border: 1px solid rgba(34, 197, 94, .32);
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, .13), rgba(34, 197, 94, .035));
+}
+
+.rocket-future span {
+    display: block;
+    margin-bottom: 9px;
+    color: #8ef7ae;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.rocket-future p {
+    margin: 0;
+}
+
+.rocket-evaluation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.rocket-evaluation-card {
+    padding: 19px;
+    border: 1px solid rgba(255, 255, 255, .09);
+    border-radius: 16px;
+}
+
+.rocket-evaluation-card h3 {
+    margin-bottom: 11px;
+    font-size: 19px;
+}
+
+.rocket-evaluation-card ul {
+    display: grid;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.rocket-evaluation-card li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.rocket-evaluation-card li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 800;
+}
+
+.rocket-evaluation-card-plus {
+    background: rgba(34, 197, 94, .07);
+}
+
+.rocket-evaluation-card-plus h3,
+.rocket-evaluation-card-plus li::before {
+    color: #8ef7ae;
+}
+
+.rocket-evaluation-card-plus li::before {
+    content: "✓";
+}
+
+.rocket-evaluation-card-minus {
+    background: rgba(251, 146, 60, .07);
+}
+
+.rocket-evaluation-card-minus h3,
+.rocket-evaluation-card-minus li::before {
+    color: #fbbf24;
+}
+
+.rocket-evaluation-card-minus li::before {
+    content: "−";
+}
+
+.rocket-next-version {
+    padding: 58px 28px;
+    border: 1px dashed rgba(34, 197, 94, .45);
+    border-radius: 26px;
+    text-align: center;
+    background: rgba(34, 197, 94, .035);
+}
+
+.rocket-next-version span {
+    color: #8ef7ae;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .18em;
+}
+
+.rocket-next-version h2 {
+    margin: 13px 0;
+    font-size: clamp(26px, 4vw, 40px);
+}
+
+.rocket-next-version p {
+    max-width: 660px;
+    margin: 0 auto;
+    color: var(--text2);
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .rocket-hero {
+        min-height: 65svh;
+        padding: 116px 20px 70px;
+    }
+
+    .rocket-timeline {
+        width: min(100% - 32px, 620px);
+        margin-bottom: 82px;
+    }
+
+    .rocket-version {
+        padding: 26px 20px;
+        border-radius: 20px;
+    }
+
+    .rocket-version-heading {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 26px;
+        text-align: left;
+    }
+
+    .rocket-version-number {
+        width: max-content;
+    }
+
+    .rocket-version-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .rocket-version-layout-reverse .rocket-media {
+        order: initial;
+    }
+
+    .rocket-version-content h3,
+    .rocket-version-content p,
+    .rocket-version-content li {
+        text-align: left;
+    }
+
+    .rocket-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .rocket-evaluation {
+        grid-template-columns: 1fr;
+    }
+
+    .rocket-next-version {
+        padding: 44px 20px;
+    }
+}

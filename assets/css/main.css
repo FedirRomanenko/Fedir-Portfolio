@@ -2576,8 +2576,9 @@ GITHUB BUTTON
 }
 
 .language-switcher button{
-
-    padding:8px 14px;
+    width:44px;
+    height:38px;
+    padding:0;
 
     background:rgba(255,255,255,.05);
 
@@ -2591,7 +2592,7 @@ GITHUB BUTTON
 
     transition:.3s;
 
-    font-size:15px;
+    font-size:19px;
 
 }
 
@@ -2851,6 +2852,12 @@ h1,h2,h3,h4,h5,h6,p{
 
 }
 
+}
+
+.language-switcher button.is-active{
+    background:#22c55e;
+    color:#08110b;
+    box-shadow:0 0 18px rgba(34,197,94,.35);
 }
 
 /* =====================================

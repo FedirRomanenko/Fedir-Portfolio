@@ -111,11 +111,11 @@
 
 <div class="mobile-languages">
 
-<button onclick="changeLanguage('ru')">🇷🇺 RU</button>
+<button type="button" data-language="ru" onclick="changeLanguage('ru')">🇷🇺</button>
 
-<button onclick="changeLanguage('en')">🇬🇧 EN</button>
+<button type="button" data-language="en" onclick="changeLanguage('en')">🇬🇧</button>
 
-<button onclick="changeLanguage('pt')">🇵🇹 PT</button>
+<button type="button" data-language="pt" onclick="changeLanguage('pt')">🇵🇹</button>
 
 </div>
 
@@ -134,11 +134,11 @@ GitHub
 
 <div class="language-switcher">
 
-    <button onclick="changeLanguage('ru')">🇷🇺 RU</button>
+    <button type="button" data-language="ru" onclick="changeLanguage('ru')">🇷🇺</button>
 
-    <button onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button type="button" data-language="en" onclick="changeLanguage('en')">🇬🇧</button>
 
-    <button onclick="changeLanguage('pt')">🇵🇹 PT</button>
+    <button type="button" data-language="pt" onclick="changeLanguage('pt')">🇵🇹</button>
 
 </div>
 
@@ -499,28 +499,13 @@ GitHub
 
 <script src="assets/js/background.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/scroll.js"></script>
 <script src="assets/js/cards.js"></script>
 <script src="assets/js/navigation.js"></script>
 <script src="assets/js/counter.js"></script>
 <script src="assets/js/ideas.js"></script>
 <script src="assets/js/menu.js"></script>
-<div id="google_translate_element"></div>
-
-<script>
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-        {
-            pageLanguage: 'ru',
-            includedLanguages: 'ru,en,pt',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_element'
-    );
-}
-</script>
-
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

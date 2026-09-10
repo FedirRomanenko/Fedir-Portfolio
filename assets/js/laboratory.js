@@ -70,11 +70,11 @@ function openLab(id){
 
 
     document.getElementById("labTitle").textContent =
-    item.title;
+    window.translateSiteText ? window.translateSiteText(item.title) : item.title;
 
 
     document.getElementById("labText").textContent =
-    item.text;
+    window.translateSiteText ? window.translateSiteText(item.text) : item.text;
 
 
     document.getElementById("labImage1").src =

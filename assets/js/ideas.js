@@ -61,9 +61,9 @@ note.innerHTML=`
 
 <div class="pin"></div>
 
-<h3>${idea.title}</h3>
+<h3>${window.translateSiteText ? window.translateSiteText(idea.title) : idea.title}</h3>
 
-<p>${idea.text}</p>
+<p>${window.translateSiteText ? window.translateSiteText(idea.text) : idea.text}</p>
 
 `;
 
@@ -80,11 +80,11 @@ function openIdea(index){
 let idea=ideas[index];
 
 document.getElementById("ideaTitle").textContent=
-idea.title;
+window.translateSiteText ? window.translateSiteText(idea.title) : idea.title;
 
 
 document.getElementById("ideaText").textContent=
-idea.text;
+window.translateSiteText ? window.translateSiteText(idea.text) : idea.text;
 
 
 document.getElementById("ideaModal")

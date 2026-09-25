@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTR V3.0 — печатная плата | Fedir</title>
+    <link rel="icon" href="../assets/icons/favicon4.png">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="header"><div class="logo"><div class="logo-icon">F</div><div class="logo-text"><h2>FEDIR</h2><span>ENGINEER PORTFOLIO</span></div></div><nav class="navigation"><a href="../index.html">Главная</a><a class="active" href="../projects.html">Проекты</a></nav><div class="language-switcher" aria-label="Выбор языка"><button type="button" data-language="ru" onclick="changeLanguage('ru')">🇷🇺</button><button type="button" data-language="en" onclick="changeLanguage('en')">🇬🇧</button><button type="button" data-language="pt" onclick="changeLanguage('pt')">🇵🇹</button></div></header>
+
+<section class="hero"><div class="hero-content"><span class="hero-badge">PCB • KICAD 10</span><h1>FTR V3.0</h1><h2>Печатная плата для FTR</h2><p>Двухслойная плата, спроектированная в KiCad 10. На странице есть вращаемая модель и полный архив исходников.</p></div></section>
+
+<section class="project-preview pcb-viewer-section"><div class="section-title"><span>3D VIEW</span><h2>3D‑просмотр платы</h2></div><p class="viewer-hint">Потяните модель пальцем или мышью, чтобы повернуть её. Колёсико или жест двумя пальцами меняет масштаб.</p><model-viewer class="pcb-viewer" src="../assets/models/FTRV3.0.glb" poster="../assets/images/ftrv3-iso.png" alt="3D-модель печатной платы FTR V3.0" camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="1200" rotation-per-second="18deg" shadow-intensity="0.8" exposure="1.05"><div slot="poster" class="viewer-loading">Загрузка 3D‑модели…</div></model-viewer><noscript><img class="pcb-viewer-fallback" src="../assets/images/ftrv3-iso.png" alt="Предпросмотр платы FTR V3.0"></noscript></section>
+
+<section class="project-info"><div class="section-title"><span>ABOUT PROJECT</span><h2>О проекте</h2></div><div class="info-grid"><div class="info-card"><h3>📖 Конструкция</h3><p>FTR V3.0 — проект KiCad 10 с платой размером 172,5 × 157,5 мм. Плата двухслойная, толщиной 1,6 мм и с медью 35 мкм.</p></div><div class="info-card"><h3>⚡ Что исправлено в V3</h3><ul><li>✔ Исправлены распиновка BC547C и полярность пяти LED</li><li>✔ Добавлены восемь входных подтяжек 47 кОм</li><li>✔ Добавлены четыре конденсатора 100 нФ и один 10 мкФ</li><li>✔ Питание разведено дорожками 0,8 мм, сигналы — 0,3 мм</li></ul></div></div></section>
+
+<section class="project-specs"><div class="section-title"><span>PROJECT INFO</span><h2>Характеристики проекта</h2></div><div class="specs-grid"><div class="spec-card"><h3>📐 Размер</h3><p>172,5 × 157,5 мм</p></div><div class="spec-card"><h3>🧱 Слои</h3><p>2 слоя, 1,6 мм</p></div><div class="spec-card"><h3>⚡ Питание</h3><p>Регулируемые 5 В</p></div><div class="spec-card"><h3>🔌 Разъём J1</h3><p>+5V / GND</p></div><div class="spec-card"><h3>🔘 Органы управления</h3><p>8 кнопок и 5 LED</p></div><div class="spec-card"><h3>✅ Проверки</h3><p>DRC и ERC: 0 нарушений</p></div></div></section>
+
+<section class="project-info"><div class="section-title"><span>PINOUT</span><h2>Питание и распиновка</h2></div><div class="info-grid"><div class="info-card"><h3>🔌 Вход питания</h3><p>На разъём J1 подаются регулируемые 5 В и GND. Перед подключением питания проверьте полярность приобретённого разъёма.</p></div><div class="info-card"><h3>💡 Компоненты</h3><p>В проекте предусмотрены 8 кнопок SW1–SW8 и 5 светодиодов D1–D5. Для LED 5 мм: площадка 1 — катод, площадка 2 — анод.</p></div></div></section>
+
+<section class="project-tradeoffs"><div class="section-title"><span>PROJECT REVIEW</span><h2>Плюсы и минусы</h2></div><div class="tradeoffs-grid"><article class="tradeoff-card tradeoff-card--plus"><h3>✓ Плюсы</h3><ul><li>Исходники, производственные файлы и 3D-модели собраны в одном архиве.</li><li>В проверках проекта нет нарушений DRC, ERC и незаведённых цепей.</li><li>Сохранены положения кнопок и LED исходной платы.</li></ul></article><article class="tradeoff-card tradeoff-card--minus"><h3>− Минусы</h3><ul><li>Распиновку физической партии BC547C нужно проверить по её даташиту до монтажа.</li><li>Перед заказом платы нужно проверить CAM-предпросмотр у производителя.</li></ul></article></div></section>
+
+<section class="download-section"><div class="section-title"><span>DOWNLOAD</span><h2>Файлы проекта</h2></div><p>Архив содержит проект KiCad, схему, плату, Gerber-файлы, 3D-модели, спецификацию и отчёты проверок. Временные файлы блокировки не включены.</p><a class="project-button" href="../assets/downloads/FTRV3.0_KiCad.zip" download>Скачать архив FTR V3.0 →</a><p class="download-note">После распаковки откройте <strong>FTRV3.0.kicad_pro</strong> в KiCad 10.</p></section>
+<script src="../assets/js/i18n.js"></script>
+</body>
+</html>

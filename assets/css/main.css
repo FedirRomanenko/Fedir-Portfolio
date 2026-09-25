@@ -3605,6 +3605,104 @@ h1,h2,h3,h4,h5,h6,p{
     line-height: 1.7;
 }
 
+/* Project catalogue filters and FTR V3.0 model viewer */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: min(1100px, 92%);
+    margin: -35px auto 34px;
+}
+
+.project-filter {
+    min-height: 42px;
+    padding: 10px 18px;
+    border: 1px solid rgba(34, 197, 94, .65);
+    border-radius: 999px;
+    background: rgba(12, 24, 36, .8);
+    color: #e8f3eb;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.project-filter:hover,
+.project-filter.is-active {
+    background: #22c55e;
+    color: #07110b;
+    transform: translateY(-2px);
+}
+
+.project-card[hidden] {
+    display: none;
+}
+
+.pcb-viewer-section {
+    width: min(1100px, 92%);
+    margin: 60px auto 80px;
+}
+
+.viewer-hint {
+    max-width: 680px;
+    margin: -25px auto 22px;
+    color: var(--text2);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.pcb-viewer {
+    display: block;
+    width: 100%;
+    height: min(67vw, 620px);
+    min-height: 360px;
+    border: 1px solid rgba(34, 197, 94, .45);
+    border-radius: 24px;
+    background: radial-gradient(circle at 50% 35%, #1c3441, #081018 70%);
+    overflow: hidden;
+}
+
+.viewer-loading {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: #d9fce4;
+    font-weight: 700;
+    background: #0b151d url("../images/ftrv3-iso.png") center / contain no-repeat;
+    text-shadow: 0 2px 5px #000;
+}
+
+.pcb-viewer-fallback {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(34, 197, 94, .45);
+    border-radius: 24px;
+}
+
+.download-section {
+    width: min(900px, 92%);
+    margin: 80px auto;
+    padding: 34px;
+    border: 1px solid rgba(34, 197, 94, .35);
+    border-radius: 24px;
+    background: rgba(19, 35, 49, .6);
+    text-align: center;
+}
+
+.download-section > p {
+    max-width: 680px;
+    margin: 0 auto 22px;
+    color: var(--text2);
+    line-height: 1.7;
+}
+
+.download-note {
+    margin-top: 20px !important;
+    font-size: 14px;
+}
+
 @media (max-width: 900px) {
     .rocket-hero {
         min-height: 65svh;
@@ -3657,5 +3755,26 @@ h1,h2,h3,h4,h5,h6,p{
 
     .rocket-next-version {
         padding: 44px 20px;
+    }
+
+    .project-filters {
+        margin-top: -20px;
+    }
+
+    .pcb-viewer-section {
+        margin-top: 45px;
+        margin-bottom: 55px;
+    }
+
+    .pcb-viewer {
+        height: 72vw;
+        min-height: 300px;
+        border-radius: 18px;
+    }
+
+    .download-section {
+        margin: 55px auto;
+        padding: 26px 18px;
+        border-radius: 18px;
     }
 }

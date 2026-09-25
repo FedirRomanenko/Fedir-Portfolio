@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local KiCad conversion intermediates; the published web viewer uses the GLB file.
+/assets/models/*.step
+/assets/images/ftrv3-render.png
+/scripts/convert-step-to-glb.mjs

@@ -57,8 +57,13 @@
 
     </div>
 
+    <div class="project-filters" aria-label="Фильтр проектов">
+        <button type="button" class="project-filter" data-project-filter="software" aria-pressed="false">Программы</button>
+        <button type="button" class="project-filter" data-project-filter="physical" aria-pressed="false">Физические проекты</button>
+    </div>
+
     <div class="projects-grid">
-<div class="project-card">
+<div class="project-card" data-project-category="software">
 
     <div class="project-image">
 
@@ -83,7 +88,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -103,7 +108,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -123,7 +128,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -143,7 +148,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -163,7 +168,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="software">
 
     <div class="project-image">
 
@@ -188,7 +193,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -213,7 +218,7 @@
 
 </div>
 
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -237,7 +242,7 @@
     </div>
 
 </div>
-<div class="project-card">
+<div class="project-card" data-project-category="physical">
 
     <div class="project-image">
 
@@ -262,12 +267,35 @@
 
 </div>
 
+<div class="project-card" data-project-category="software">
+    <div class="project-image">
+        <img src="assets/images/jarvis-icon.png" alt="Иконка JARVIS">
+    </div>
+    <div class="project-content">
+        <h3>JARVIS</h3>
+        <p>Голосовой AI-помощник для Windows с управлением приложениями и браузером.</p>
+        <button class="project-button" onclick="location.href='projects/jarvis.html'">Открыть →</button>
+    </div>
+</div>
+
+<div class="project-card" data-project-category="physical">
+    <div class="project-image">
+        <img src="assets/images/ftrv3-iso.png" alt="Печатная плата FTR V3.0">
+    </div>
+    <div class="project-content">
+        <h3>FTR V3.0 PCB</h3>
+        <p>Двухслойная печатная плата KiCad с 3D-моделью и архивом исходников.</p>
+        <button class="project-button" onclick="location.href='projects/ftr-v3-pcb.html'">Открыть →</button>
+    </div>
+</div>
+
 
 
 </section>
 
 <script src="assets/js/background.js"></script>
 <script src="assets/js/i18n.js"></script>
+<script src="assets/js/projects-filter.js"></script>
 
 </body>
 

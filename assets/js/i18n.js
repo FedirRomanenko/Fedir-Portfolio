@@ -85,6 +85,8 @@
     "Архив проекта": ["Project archive", "Arquivo do projeto"],
     "Архив проходит очистку: файл .env с личными настройками не будет опубликован.": ["The archive is being cleaned: the .env file with personal settings will not be published.", "O arquivo está a ser limpo: o ficheiro .env com definições pessoais não será publicado."],
     "Архив готовится": ["Archive in preparation", "Arquivo em preparação"],
+    "Архив проверен: файл .env и типичные файлы с личными ключами в нём не найдены.": ["The archive was checked: no .env file or typical files with personal keys were found.", "O arquivo foi verificado: não foram encontrados ficheiros .env nem ficheiros típicos com chaves pessoais."],
+    "Скачать JARVIS для Windows →": ["Download JARVIS for Windows →", "Descarregar JARVIS para Windows →"],
     "FTR V3.0 — печатная плата | Fedir": ["FTR V3.0 — printed circuit board | Fedir", "FTR V3.0 — placa de circuito impresso | Fedir"],
     "Печатная плата для FTR": ["Printed circuit board for FTR", "Placa de circuito impresso para FTR"],
     "Двухслойная плата, спроектированная в KiCad 10. На странице есть вращаемая модель и полный архив исходников.": ["A two-layer board designed in KiCad 10. This page includes a rotatable model and a complete source archive.", "Uma placa de duas camadas desenhada no KiCad 10. Esta página inclui um modelo rotativo e um arquivo completo de fontes."],

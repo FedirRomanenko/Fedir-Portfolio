@@ -3676,7 +3676,7 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 18px;
     background: #e7f0f4;
     z-index: 2;
-    transition: opacity .25s ease;
+    transition: transform .18s ease;
 }
 
 .pcb-viewer {
@@ -3685,8 +3685,13 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .pcb-model-frame.is-interactive .pcb-static-preview {
-    opacity: 0;
-    pointer-events: none;
+    cursor: grab;
+    touch-action: none;
+}
+
+.pcb-model-frame.is-dragging .pcb-static-preview {
+    cursor: grabbing;
+    transition: none;
 }
 
 .viewer-controls {

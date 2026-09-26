@@ -5,11 +5,9 @@
     const model = frame.querySelector("model-viewer");
     const status = frame.querySelector(".viewer-status");
     const openButton = document.querySelector('[data-viewer-action="open"]');
-    let timeoutId;
     let modelLoaded = false;
 
     function showRealModel() {
-      window.clearTimeout(timeoutId);
       frame.classList.remove("is-loading");
       frame.classList.add("is-real-model");
       if (status) {
@@ -18,29 +16,25 @@
     }
 
     function restorePreview() {
-      window.clearTimeout(timeoutId);
       frame.classList.remove("is-loading", "is-real-model");
       if (status) status.textContent = "";
+    }
+
+    function startLoading() {
+      if (!model.getAttribute("src")) model.setAttribute("src", model.dataset.src);
     }
 
     openButton?.addEventListener("click", () => {
       frame.classList.remove("is-real-model");
       frame.classList.add("is-loading");
-      if (status) status.textContent = "Загружается настоящая 3D‑модель…";
+      if (status) status.textContent = "Загружается настоящая 3D‑модель. Первый запуск может занять немного времени…";
 
       if (modelLoaded) {
         showRealModel();
         return;
       }
 
-      timeoutId = window.setTimeout(() => {
-        if (!frame.classList.contains("is-real-model")) {
-          frame.classList.remove("is-loading");
-          if (status) status.textContent = "3D‑модель не запустилась в этом браузере — оставлен обычный вид платы.";
-        }
-      }, 12000);
-
-      if (!model.getAttribute("src")) model.setAttribute("src", model.dataset.src);
+      startLoading();
     });
 
     model?.addEventListener("load", () => {
@@ -54,5 +48,8 @@
     });
 
     document.querySelector('[data-viewer-action="reset"]')?.addEventListener("click", restorePreview);
+
+    // Keep the regular image visible while the real model is fetched in advance.
+    startLoading();
   });
 })();

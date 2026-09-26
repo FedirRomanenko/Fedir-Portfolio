@@ -1,54 +1,58 @@
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
     const frame = document.querySelector("#pcb-model-frame");
-    const preview = frame?.querySelector(".pcb-static-preview");
     if (!frame) return;
-    let rotationX = 0;
-    let rotationY = 0;
-    let zoom = 1;
-    let dragStart = null;
+    const model = frame.querySelector("model-viewer");
+    const status = frame.querySelector(".viewer-status");
+    const openButton = document.querySelector('[data-viewer-action="open"]');
+    let timeoutId;
+    let modelLoaded = false;
 
-    function draw() {
-      preview.style.transform = `perspective(1200px) rotateX(${rotationX}deg) rotateY(${rotationY}deg) scale(${zoom})`;
+    function showRealModel() {
+      window.clearTimeout(timeoutId);
+      frame.classList.remove("is-loading");
+      frame.classList.add("is-real-model");
+      if (status) {
+        status.textContent = "Настоящая 3D‑модель загружена: перетаскивайте её для вращения.";
+      }
     }
 
-    function reset() {
-      rotationX = 0;
-      rotationY = 0;
-      zoom = 1;
-      frame.classList.remove("is-dragging");
-      draw();
+    function restorePreview() {
+      window.clearTimeout(timeoutId);
+      frame.classList.remove("is-loading", "is-real-model");
+      if (status) status.textContent = "";
     }
 
-    document.querySelector('[data-viewer-action="open"]')?.addEventListener("click", () => {
-      frame.classList.add("is-interactive");
-      draw();
-    });
-    document.querySelector('[data-viewer-action="reset"]')?.addEventListener("click", reset);
+    openButton?.addEventListener("click", () => {
+      frame.classList.remove("is-real-model");
+      frame.classList.add("is-loading");
+      if (status) status.textContent = "Загружается настоящая 3D‑модель…";
 
-    preview?.addEventListener("pointerdown", event => {
-      if (!frame.classList.contains("is-interactive")) return;
-      dragStart = { x: event.clientX, y: event.clientY, rotationX, rotationY };
-      frame.classList.add("is-dragging");
-      preview.setPointerCapture(event.pointerId);
+      if (modelLoaded) {
+        showRealModel();
+        return;
+      }
+
+      timeoutId = window.setTimeout(() => {
+        if (!frame.classList.contains("is-real-model")) {
+          frame.classList.remove("is-loading");
+          if (status) status.textContent = "3D‑модель не запустилась в этом браузере — оставлен обычный вид платы.";
+        }
+      }, 12000);
+
+      if (!model.getAttribute("src")) model.setAttribute("src", model.dataset.src);
     });
-    preview?.addEventListener("pointermove", event => {
-      if (!dragStart) return;
-      rotationY = Math.max(-32, Math.min(32, dragStart.rotationY + (event.clientX - dragStart.x) * 0.13));
-      rotationX = Math.max(-32, Math.min(32, dragStart.rotationX - (event.clientY - dragStart.y) * 0.13));
-      draw();
+
+    model?.addEventListener("load", () => {
+      modelLoaded = true;
+      if (frame.classList.contains("is-loading")) showRealModel();
     });
-    const stopDrag = () => {
-      dragStart = null;
-      frame.classList.remove("is-dragging");
-    };
-    preview?.addEventListener("pointerup", stopDrag);
-    preview?.addEventListener("pointercancel", stopDrag);
-    preview?.addEventListener("wheel", event => {
-      if (!frame.classList.contains("is-interactive")) return;
-      event.preventDefault();
-      zoom = Math.max(0.78, Math.min(1.45, zoom - event.deltaY * 0.001));
-      draw();
-    }, { passive: false });
+
+    model?.addEventListener("error", () => {
+      restorePreview();
+      if (status) status.textContent = "3D‑модель не удалось загрузить — оставлен обычный вид платы.";
+    });
+
+    document.querySelector('[data-viewer-action="reset"]')?.addEventListener("click", restorePreview);
   });
 })();

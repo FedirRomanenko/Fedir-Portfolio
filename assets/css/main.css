@@ -3676,7 +3676,7 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 18px;
     background: #e7f0f4;
     z-index: 2;
-    transition: transform .18s ease;
+    transition: opacity .25s ease;
 }
 
 .pcb-viewer {
@@ -3684,14 +3684,24 @@ h1,h2,h3,h4,h5,h6,p{
     z-index: 1;
 }
 
-.pcb-model-frame.is-interactive .pcb-static-preview {
-    cursor: grab;
-    touch-action: none;
+.pcb-model-frame.is-real-model .pcb-static-preview {
+    opacity: 0;
+    pointer-events: none;
 }
 
-.pcb-model-frame.is-dragging .pcb-static-preview {
-    cursor: grabbing;
-    transition: none;
+.viewer-status {
+    position: absolute;
+    z-index: 3;
+    right: 16px;
+    bottom: 14px;
+    left: 16px;
+    margin: 0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 1px 3px #000;
+    pointer-events: none;
 }
 
 .viewer-controls {

@@ -3745,6 +3745,38 @@ h1,h2,h3,h4,h5,h6,p{
     font-size: 14px;
 }
 
+.simulide-schematic-section {
+    margin-bottom: 80px;
+}
+
+.simulide-schematic {
+    grid-template-columns: minmax(0, 720px);
+    justify-content: center;
+}
+
+.simulide-schematic img {
+    display: block;
+    background: #eeeedc;
+    object-fit: contain;
+}
+
+.simulide-download {
+    margin-top: 0;
+}
+
+.download-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.download-actions .project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 900px) {
     .rocket-hero {
         min-height: 65svh;
@@ -3818,5 +3850,9 @@ h1,h2,h3,h4,h5,h6,p{
         margin: 55px auto;
         padding: 26px 18px;
         border-radius: 18px;
+    }
+
+    .simulide-schematic-section {
+        margin-bottom: 55px;
     }
 }
